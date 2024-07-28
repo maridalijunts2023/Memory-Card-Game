@@ -1,0 +1,128 @@
+@import url('https://fontawesome.com/icons');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: greenyellow;
+}
+
+.wrapper {
+    height: auto;
+    width: 500px;
+    background: darkgoldenrod;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.cards {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 15px;
+}
+
+.card,
+.view {
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .front-view .span {
+    color: burlywood;
+    font-size: 40px;
+}
+
+.card .back-view .img {
+    width: 45px;
+}
+
+.card {
+    width: 140px;
+    height: 140px;
+    transform: rotateY(180deg);
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    transition: .4s;
+}
+
+.flipped {
+    transform: rotateY(360deg);
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    width: 140px;
+    height: 140px;
+    transition: .4s;
+}
+
+
+.card.matched {
+    pointer-events: none;
+    border: 2px solid green;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(-5px);
+        border-color: red
+    }
+
+    50% {
+        transform: translateX(5px);
+        border-color: red
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+.cards .card .view {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 7px;
+    transition: transform 0.25s linear;
+    backface-visibility: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card .back-view img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.card.flip .front-view {
+    transform: rotateY(180deg);
+}
+
+.card.flip .back-view {
+    transform: rotateY(0);
+}
